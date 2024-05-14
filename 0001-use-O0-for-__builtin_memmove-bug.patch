@@ -1,0 +1,25 @@
+From 77d92aa55effb9e162b8e76b1edd3c68e2f1f6d2 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Tue, 14 May 2024 10:38:10 +0800
+Subject: [PATCH] use O0 for __builtin_memmove bug.
+
+---
+ debian/rules.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index a856369d1..3a114fffe 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -16,7 +16,7 @@ export LDFLAGS=
+ export PKG_CONFIG_PATH=@(InstallationPrefix)/lib/pkgconfig
+ # Explicitly enable -DNDEBUG, see:
+ # 	https://github.com/ros-infrastructure/bloom/issues/327
+-export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
++export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG -O0
+ ifneq ($(filter nocheck,$(DEB_BUILD_OPTIONS)),)
+ 	BUILD_TESTING_ARG=-DBUILD_TESTING=OFF
+ endif
+-- 
+2.41.0
+
