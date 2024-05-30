@@ -1,0 +1,39 @@
+From 219f1535d675fefc909172c676f55b8a07365fd2 Mon Sep 17 00:00:00 2001
+From: Sakura286 <sakura286@outlook.com>
+Date: Fri, 31 May 2024 01:39:04 +0800
+Subject: [PATCH] fix uninitialized value warning
+
+---
+ debian/patches/01-fix-uninitialized-warning.patch | 11 +++++++++++
+ debian/patches/series                             |  1 +
+ 2 files changed, 12 insertions(+)
+ create mode 100644 debian/patches/01-fix-uninitialized-warning.patch
+ create mode 100644 debian/patches/series
+
+diff --git a/debian/patches/01-fix-uninitialized-warning.patch b/debian/patches/01-fix-uninitialized-warning.patch
+new file mode 100644
+index 000000000..dfbcc1483
+--- /dev/null
++++ b/debian/patches/01-fix-uninitialized-warning.patch
+@@ -0,0 +1,11 @@
++--- a/src/behavior_server.cpp
+++++ b/src/behavior_server.cpp
++@@ -77,7 +77,7 @@
++   transform_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_);
++ 
++   std::string costmap_topic, footprint_topic, robot_base_frame;
++-  double transform_tolerance;
+++  double transform_tolerance = 0.0;
++   this->get_parameter("costmap_topic", costmap_topic);
++   this->get_parameter("footprint_topic", footprint_topic);
++   this->get_parameter("transform_tolerance", transform_tolerance);
+diff --git a/debian/patches/series b/debian/patches/series
+new file mode 100644
+index 000000000..c822ba7fa
+--- /dev/null
++++ b/debian/patches/series
+@@ -0,0 +1 @@
++01-fix-uninitialized-warning.patch
+-- 
+2.34.1
+
