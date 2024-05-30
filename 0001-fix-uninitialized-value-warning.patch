@@ -1,0 +1,39 @@
+From a93cd3b990c840160c81fa1b09fa8aa8a27c1d2b Mon Sep 17 00:00:00 2001
+From: Sakura286 <sakura286@outlook.com>
+Date: Fri, 31 May 2024 01:42:27 +0800
+Subject: [PATCH] fix uninitialized value warning
+
+---
+ debian/patches/01-fix-uninitialized-warning.patch | 11 +++++++++++
+ debian/patches/series                             |  1 +
+ 2 files changed, 12 insertions(+)
+ create mode 100644 debian/patches/01-fix-uninitialized-warning.patch
+ create mode 100644 debian/patches/series
+
+diff --git a/debian/patches/01-fix-uninitialized-warning.patch b/debian/patches/01-fix-uninitialized-warning.patch
+new file mode 100644
+index 000000000..549df7c83
+--- /dev/null
++++ b/debian/patches/01-fix-uninitialized-warning.patch
+@@ -0,0 +1,11 @@
++--- a/src/planner_server.cpp
+++++ b/src/planner_server.cpp
++@@ -123,7 +123,7 @@
++     get_logger(),
++     "Planner Server has %s planners available.", planner_ids_concat_.c_str());
++ 
++-  double expected_planner_frequency;
+++  double expected_planner_frequency = 0.0;
++   get_parameter("expected_planner_frequency", expected_planner_frequency);
++   if (expected_planner_frequency > 0) {
++     max_planner_duration_ = 1 / expected_planner_frequency;
+diff --git a/debian/patches/series b/debian/patches/series
+new file mode 100644
+index 000000000..c822ba7fa
+--- /dev/null
++++ b/debian/patches/series
+@@ -0,0 +1 @@
++01-fix-uninitialized-warning.patch
+-- 
+2.34.1
+
