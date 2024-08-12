@@ -1,4 +1,4 @@
-From 219f1535d675fefc909172c676f55b8a07365fd2 Mon Sep 17 00:00:00 2001
+From 52047267abbd5b1a2c2c509089822f808a7dbbbc Mon Sep 17 00:00:00 2001
 From: Sakura286 <sakura286@outlook.com>
 Date: Fri, 31 May 2024 01:39:04 +0800
 Subject: [PATCH] fix uninitialized value warning
@@ -35,5 +35,5 @@ index 000000000..c822ba7fa
 @@ -0,0 +1 @@
 +01-fix-uninitialized-warning.patch
 -- 
-2.34.1
+2.45.2
 
