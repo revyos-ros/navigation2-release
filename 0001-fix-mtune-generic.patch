@@ -1,4 +1,4 @@
-From ff7fd06f4c7a12b88489be18d6de2ed7196c81eb Mon Sep 17 00:00:00 2001
+From 2b89b126f01338a4434146097fa13e012ee63ef8 Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Mon, 4 Nov 2024 12:54:16 +0800
 Subject: [PATCH] fix -mtune=generic.
