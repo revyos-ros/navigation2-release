@@ -1,7 +1,7 @@
-From a8229d4bbf13c2e9d5cd7f0126bd98e1656f7cb9 Mon Sep 17 00:00:00 2001
+From f506c58946fa34f81f71c22dff369e519f48245d Mon Sep 17 00:00:00 2001
 From: Sakura286 <sakura286@outlook.com>
 Date: Fri, 31 May 2024 01:39:04 +0800
-Subject: [PATCH] fix uninitialized value warning
+Subject: [PATCH 1/2] fix uninitialized value warning
 
 ---
  debian/patches/01-fix-uninitialized-warning.patch | 11 +++++++++++
