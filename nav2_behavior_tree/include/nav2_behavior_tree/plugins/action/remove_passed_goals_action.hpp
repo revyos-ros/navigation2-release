@@ -23,6 +23,7 @@
 #include "nav2_util/geometry_utils.hpp"
 #include "nav2_util/robot_utils.hpp"
 #include "behaviortree_cpp/action_node.h"
+#include "nav2_behavior_tree/bt_utils.hpp"
 
 namespace nav2_behavior_tree
 {
@@ -60,7 +61,6 @@ private:
   double transform_tolerance_;
   std::shared_ptr<tf2_ros::Buffer> tf_;
   std::string robot_base_frame_;
-  bool initialized_;
 };
 
 }  // namespace nav2_behavior_tree
