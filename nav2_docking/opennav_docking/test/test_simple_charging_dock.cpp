@@ -48,6 +48,7 @@ TEST(SimpleChargingDockTests, ObjectLifecycle)
   EXPECT_FALSE(dock->isCharging());
   EXPECT_TRUE(dock->disableCharging());
   EXPECT_TRUE(dock->hasStoppedCharging());
+  EXPECT_TRUE(dock->isCharger());
 
   dock->deactivate();
   dock->cleanup();
@@ -66,6 +67,8 @@ TEST(SimpleChargingDockTests, BatteryState)
 
   dock->configure(node, "my_dock", nullptr);
   dock->activate();
+  geometry_msgs::msg::PoseStamped pose;
+  EXPECT_TRUE(dock->getRefinedPose(pose, ""));
 
   // Below threshold
   sensor_msgs::msg::BatteryState msg;
