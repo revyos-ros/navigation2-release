@@ -20,7 +20,6 @@
 #include "nav2_util/geometry_utils.hpp"
 
 #include "nav2_behavior_tree/plugins/condition/distance_traveled_condition.hpp"
-#include "nav2_behavior_tree/bt_utils.hpp"
 
 namespace nav2_behavior_tree
 {
@@ -30,8 +29,7 @@ DistanceTraveledCondition::DistanceTraveledCondition(
   const BT::NodeConfiguration & conf)
 : BT::ConditionNode(condition_name, conf),
   distance_(1.0),
-  transform_tolerance_(0.1),
-  initialized_(false)
+  transform_tolerance_(0.1)
 {
 }
 
@@ -47,12 +45,11 @@ void DistanceTraveledCondition::initialize()
     node_, "global_frame", this);
   robot_base_frame_ = BT::deconflictPortAndParamFrame<std::string>(
     node_, "robot_base_frame", this);
-  initialized_ = true;
 }
 
 BT::NodeStatus DistanceTraveledCondition::tick()
 {
-  if (!initialized_) {
+  if (!BT::isStatusActive(status())) {
     initialize();
   }
 
