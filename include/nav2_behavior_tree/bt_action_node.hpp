@@ -58,9 +58,7 @@ public:
     // Get the required items from the blackboard
     auto bt_loop_duration =
       config().blackboard->template get<std::chrono::milliseconds>("bt_loop_duration");
-    server_timeout_ =
-      config().blackboard->template get<std::chrono::milliseconds>("server_timeout");
-    getInput<std::chrono::milliseconds>("server_timeout", server_timeout_);
+    getInputOrBlackboard("server_timeout", server_timeout_);
     wait_for_service_timeout_ =
       config().blackboard->template get<std::chrono::milliseconds>("wait_for_service_timeout");
 
@@ -193,14 +191,14 @@ public:
   {
     // first step to be done only at the beginning of the Action
     if (!BT::isStatusActive(status())) {
-      // setting the status to RUNNING to notify the BT Loggers (if any)
-      setStatus(BT::NodeStatus::RUNNING);
-
       // reset the flag to send the goal or not, allowing the user the option to set it in on_tick
       should_send_goal_ = true;
 
       // user defined callback, may modify "should_send_goal_".
       on_tick();
+
+      // setting the status to RUNNING to notify the BT Loggers (if any)
+      setStatus(BT::NodeStatus::RUNNING);
 
       if (!should_send_goal_) {
         return BT::NodeStatus::FAILURE;
