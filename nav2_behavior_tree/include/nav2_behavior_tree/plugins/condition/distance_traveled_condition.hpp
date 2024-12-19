@@ -24,6 +24,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "tf2_ros/buffer.h"
+#include "nav2_behavior_tree/bt_utils.hpp"
 
 namespace nav2_behavior_tree
 {
@@ -79,7 +80,6 @@ private:
   double distance_;
   double transform_tolerance_;
   std::string global_frame_, robot_base_frame_;
-  bool initialized_;
 };
 
 }  // namespace nav2_behavior_tree
