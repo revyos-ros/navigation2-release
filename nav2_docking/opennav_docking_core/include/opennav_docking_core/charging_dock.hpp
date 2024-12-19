@@ -119,6 +119,11 @@ public:
    */
   virtual bool hasStoppedCharging() = 0;
 
+  /**
+   * @brief Gets if this is a charging-typed dock
+   */
+  virtual bool isCharger() {return true;}
+
   std::string getName() {return name_;}
 
 protected:
