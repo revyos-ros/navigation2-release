@@ -21,6 +21,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "behaviortree_cpp/condition_node.h"
 #include "tf2_ros/buffer.h"
+#include "nav2_behavior_tree/bt_utils.hpp"
 
 namespace nav2_behavior_tree
 {
@@ -89,7 +90,6 @@ private:
   rclcpp::Node::SharedPtr node_;
   std::shared_ptr<tf2_ros::Buffer> tf_;
 
-  bool initialized_;
   double goal_reached_tol_;
   double transform_tolerance_;
   std::string robot_base_frame_;
