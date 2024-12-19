@@ -20,7 +20,6 @@
 #include "nav2_util/geometry_utils.hpp"
 
 #include "nav2_behavior_tree/plugins/action/remove_passed_goals_action.hpp"
-#include "nav2_behavior_tree/bt_utils.hpp"
 
 namespace nav2_behavior_tree
 {
@@ -29,8 +28,7 @@ RemovePassedGoals::RemovePassedGoals(
   const std::string & name,
   const BT::NodeConfiguration & conf)
 : BT::ActionNodeBase(name, conf),
-  viapoint_achieved_radius_(0.5),
-  initialized_(false)
+  viapoint_achieved_radius_(0.5)
 {}
 
 void RemovePassedGoals::initialize()
@@ -47,9 +45,7 @@ void RemovePassedGoals::initialize()
 
 inline BT::NodeStatus RemovePassedGoals::tick()
 {
-  setStatus(BT::NodeStatus::RUNNING);
-
-  if (!initialized_) {
+  if (!BT::isStatusActive(status())) {
     initialize();
   }
 
