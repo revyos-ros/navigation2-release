@@ -1,3 +1,65 @@
+## navigation2 (humble) - 1.1.18-1
+
+The packages in the `navigation2` repository were released into the `humble` distro by running `/home/z572/gits/revyos-ros/venv2/bin/bloom-release -r humble navigation2 --override-release-repository-push-url git@github.com:revyos-ros/navigation2-release.git` on `Mon, 17 Feb 2025 03:03:48 -0000`
+
+These packages were released:
+- `costmap_queue`
+- `dwb_core`
+- `dwb_critics`
+- `dwb_msgs`
+- `dwb_plugins`
+- `nav2_amcl`
+- `nav2_behavior_tree`
+- `nav2_behaviors`
+- `nav2_bringup`
+- `nav2_bt_navigator`
+- `nav2_collision_monitor`
+- `nav2_common`
+- `nav2_constrained_smoother`
+- `nav2_controller`
+- `nav2_core`
+- `nav2_costmap_2d`
+- `nav2_dwb_controller`
+- `nav2_graceful_controller`
+- `nav2_lifecycle_manager`
+- `nav2_map_server`
+- `nav2_mppi_controller`
+- `nav2_msgs`
+- `nav2_navfn_planner`
+- `nav2_planner`
+- `nav2_regulated_pure_pursuit_controller`
+- `nav2_rotation_shim_controller`
+- `nav2_rviz_plugins`
+- `nav2_simple_commander`
+- `nav2_smac_planner`
+- `nav2_smoother`
+- `nav2_system_tests`
+- `nav2_theta_star_planner`
+- `nav2_util`
+- `nav2_velocity_smoother`
+- `nav2_voxel_grid`
+- `nav2_waypoint_follower`
+- `nav_2d_msgs`
+- `nav_2d_utils`
+- `navigation2`
+
+Version of package(s) in repository `navigation2`:
+
+- upstream repository: https://github.com/ros-planning/navigation2.git
+- release repository: https://github.com/revyos-ros/navigation2-release.git
+- rosdistro version: `1.1.18-1`
+- old version: `1.1.17-1`
+- new version: `1.1.18-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## navigation2 (jazzy) - 1.3.4-1
 
 The packages in the `navigation2` repository were released into the `jazzy` distro by running `/tmp/venv/bin/bloom-release -r jazzy navigation2 --override-release-repository-push-url git@github.com:revyos-ros/navigation2-release.git` on `Thu, 19 Dec 2024 06:20:47 -0000`
