@@ -1,0 +1,25 @@
+From 45b3103c2f46b8b6d450d8de338ed7f015248491 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+Date: Wed, 8 Jan 2025 12:48:02 +0800
+Subject: [PATCH] use O0
+
+---
+ debian/rules.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index a856369d1..3a114fffe 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -16,7 +16,7 @@ export LDFLAGS=
+ export PKG_CONFIG_PATH=@(InstallationPrefix)/lib/pkgconfig
+ # Explicitly enable -DNDEBUG, see:
+ # 	https://github.com/ros-infrastructure/bloom/issues/327
+-export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG
++export DEB_CXXFLAGS_MAINT_APPEND=-DNDEBUG -O0
+ ifneq ($(filter nocheck,$(DEB_BUILD_OPTIONS)),)
+ 	BUILD_TESTING_ARG=-DBUILD_TESTING=OFF
+ endif
+-- 
+2.47.1
+
