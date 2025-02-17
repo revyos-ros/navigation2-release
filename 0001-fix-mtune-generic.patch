@@ -1,4 +1,4 @@
-From 2b89b126f01338a4434146097fa13e012ee63ef8 Mon Sep 17 00:00:00 2001
+From a9293f1cf88002a2900df0692188c18bdbf5ad2f Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 Date: Mon, 4 Nov 2024 12:54:16 +0800
 Subject: [PATCH] fix -mtune=generic.
@@ -49,5 +49,5 @@ index 000000000..a6a7c8562
 @@ -0,0 +1 @@
 +0001-no-mtune-generic.patch
 -- 
-2.46.0
+2.47.1
 
