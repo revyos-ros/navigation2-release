@@ -1,0 +1,25 @@
+From cdd34bfb81e36dc8ed2d2cb1848adb5c18794908 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <z572@z572.online>
+Date: Fri, 21 Mar 2025 20:02:48 +0800
+Subject: [PATCH] remove Werror.
+
+---
+ cmake/nav2_package.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/nav2_package.cmake b/cmake/nav2_package.cmake
+index 3f4977193..01ca1c3ed 100644
+--- a/cmake/nav2_package.cmake
++++ b/cmake/nav2_package.cmake
+@@ -37,7 +37,7 @@ macro(nav2_package)
+   endif()
+ 
+   if(CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-    add_compile_options(-Wall -Wextra -Wpedantic -Werror -Wdeprecated -fPIC -Wshadow -Wnull-dereference)
++    add_compile_options(-Wall -Wextra -Wpedantic -Wdeprecated -fPIC -Wshadow -Wnull-dereference)
+     add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>")
+   endif()
+ 
+-- 
+2.47.1
+
