@@ -1,4 +1,4 @@
-From 6a724f7eed01130449d15ff5f6863088a4400f12 Mon Sep 17 00:00:00 2001
+From da57afa42588aee8af3f9ff97ccf6baf301ca3c3 Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <z572@z572.online>
 Date: Fri, 21 Mar 2025 20:03:20 +0800
 Subject: [PATCH] add remove-Werror.patch.
