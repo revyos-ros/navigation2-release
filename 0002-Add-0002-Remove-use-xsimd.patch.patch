@@ -1,4 +1,4 @@
-From 6a99f3777fb997343fdb087004c641d3a81f83e9 Mon Sep 17 00:00:00 2001
+From 639aef4c19a656fedf9c781ba69a31fc50491428 Mon Sep 17 00:00:00 2001
 From: Zheng Junjie <z572@z572.online>
 Date: Sat, 22 Mar 2025 12:24:49 +0800
 Subject: [PATCH 2/2] Add 0002-Remove-use-xsimd.patch.
