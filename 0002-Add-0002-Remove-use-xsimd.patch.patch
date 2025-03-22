@@ -1,0 +1,66 @@
+From 6a99f3777fb997343fdb087004c641d3a81f83e9 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <z572@z572.online>
+Date: Sat, 22 Mar 2025 12:24:49 +0800
+Subject: [PATCH 2/2] Add 0002-Remove-use-xsimd.patch.
+
+---
+ debian/patches/0002-Remove-use-xsimd.patch | 39 ++++++++++++++++++++++
+ debian/patches/series                      |  1 +
+ 2 files changed, 40 insertions(+)
+ create mode 100644 debian/patches/0002-Remove-use-xsimd.patch
+
+diff --git a/debian/patches/0002-Remove-use-xsimd.patch b/debian/patches/0002-Remove-use-xsimd.patch
+new file mode 100644
+index 000000000..c456afaf1
+--- /dev/null
++++ b/debian/patches/0002-Remove-use-xsimd.patch
+@@ -0,0 +1,39 @@
++From 73101833e8c03f134635f107d6f0a76386506399 Mon Sep 17 00:00:00 2001
++From: Zheng Junjie <z572@z572.online>
++Date: Sat, 22 Mar 2025 12:23:57 +0800
++Subject: [PATCH] Remove use xsimd.
++
++---
++ CMakeLists.txt | 6 +++---
++ 1 file changed, 3 insertions(+), 3 deletions(-)
++
++diff --git a/CMakeLists.txt b/CMakeLists.txt
++index 3ca6735e4..3fcbfe631 100644
++--- a/CMakeLists.txt
+++++ b/CMakeLists.txt
++@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.5)
++ project(nav2_mppi_controller)
++ 
++ add_definitions(-DXTENSOR_ENABLE_XSIMD)
++-add_definitions(-DXTENSOR_USE_XSIMD)
+++# add_definitions(-DXTENSOR_USE_XSIMD)
++ 
++ set(XTENSOR_USE_TBB 0)
++ set(XTENSOR_USE_OPENMP 0)
++-set(XTENSOR_USE_XSIMD 1)
+++# set(XTENSOR_USE_XSIMD 1)
++ 
++ # set(XTENSOR_DEFAULT_LAYOUT column_major)  # row_major, column_major
++ # set(XTENSOR_DEFAULT_TRAVERSAL row_major)  # row_major, column_major
++@@ -97,7 +97,7 @@ set(libraries mppi_controller mppi_critics)
++ foreach(lib IN LISTS libraries)
++   target_compile_options(${lib} PUBLIC -fconcepts)
++   target_include_directories(${lib} PUBLIC ${xsimd_INCLUDE_DIRS})  #  ${OpenMP_INCLUDE_DIRS}
++-  target_link_libraries(${lib} xtensor xtensor::optimize xtensor::use_xsimd)
+++  target_link_libraries(${lib} xtensor xtensor::optimize)
++   ament_target_dependencies(${lib} ${dependencies_pkgs})
++ endforeach()
++ 
++-- 
++2.47.1
++
+diff --git a/debian/patches/series b/debian/patches/series
+index a6a7c8562..04ec82ca2 100644
+--- a/debian/patches/series
++++ b/debian/patches/series
+@@ -1 +1,2 @@
+ 0001-no-mtune-generic.patch
++0002-Remove-use-xsimd.patch
+-- 
+2.48.1
+
