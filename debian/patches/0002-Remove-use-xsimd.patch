@@ -1,0 +1,39 @@
+From 73101833e8c03f134635f107d6f0a76386506399 Mon Sep 17 00:00:00 2001
+From: Zheng Junjie <z572@z572.online>
+Date: Sat, 22 Mar 2025 12:23:57 +0800
+Subject: [PATCH] Remove use xsimd.
+
+---
+ CMakeLists.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3ca6735e4..3fcbfe631 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.5)
+ project(nav2_mppi_controller)
+ 
+ add_definitions(-DXTENSOR_ENABLE_XSIMD)
+-add_definitions(-DXTENSOR_USE_XSIMD)
++# add_definitions(-DXTENSOR_USE_XSIMD)
+ 
+ set(XTENSOR_USE_TBB 0)
+ set(XTENSOR_USE_OPENMP 0)
+-set(XTENSOR_USE_XSIMD 1)
++# set(XTENSOR_USE_XSIMD 1)
+ 
+ # set(XTENSOR_DEFAULT_LAYOUT column_major)  # row_major, column_major
+ # set(XTENSOR_DEFAULT_TRAVERSAL row_major)  # row_major, column_major
+@@ -97,7 +97,7 @@ set(libraries mppi_controller mppi_critics)
+ foreach(lib IN LISTS libraries)
+   target_compile_options(${lib} PUBLIC -fconcepts)
+   target_include_directories(${lib} PUBLIC ${xsimd_INCLUDE_DIRS})  #  ${OpenMP_INCLUDE_DIRS}
+-  target_link_libraries(${lib} xtensor xtensor::optimize xtensor::use_xsimd)
++  target_link_libraries(${lib} xtensor xtensor::optimize)
+   ament_target_dependencies(${lib} ${dependencies_pkgs})
+ endforeach()
+ 
+-- 
+2.47.1
+
